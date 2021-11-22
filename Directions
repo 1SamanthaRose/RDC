@@ -18,3 +18,5 @@ Which variables will we use?
 
 	
 colnames(DRC) <- make.unique(names(DRC)) #if getting duplicate 'data' error
+
+You can use options(scipen = 999) before plotting, in order to avoid scientific notation of numbers.

@@ -70,7 +70,7 @@ DRC <- merge(DRC, popg, by = "Year", all = TRUE)
 #remove unnecessary dataframes
 remove(popg, upa, tpop, rec, ate, forestkm, agkm, agp)
 
-options(DRC, digits = 3)
+DRC<- lapply(DRC, as.numeric)
 
 #Plotting total pop. growth
 
@@ -82,5 +82,5 @@ colnames(DRC) <- make.unique(names(DRC)) #if getting duplicate 'data' error
 
 g <- ggplot(data = DRC)+
   geom_point(mapping = aes(Year, popg), na.rm = TRUE) +
-  scale_y_discrete(breaks = c(0.5,1,1.5,2,2.5,3))
+  scale_y_continuous(limits = c("0.5", "3.5", "0.5"))
 g
